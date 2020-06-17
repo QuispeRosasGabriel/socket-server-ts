@@ -2,16 +2,43 @@ import { Router, Request, Response } from "express";
 
 export const router = Router();
 
-router.get("/mensajes", (reqt: Request, res: Response) => {
+// ===================================
+//GET MENSAJES
+// ===================================
+router.get("/mensajes", (req: Request, res: Response) => {
   res.json({
     ok: true,
     mensaje: "todo esta bien",
   });
 });
 
-router.post("/mensajes", (reqt: Request, res: Response) => {
+// ===================================
+//POST MENSAJES
+// ===================================
+router.post("/mensajes", (req: Request, res: Response) => {
+  const cuerpo = req.body.cuerpo;
+  const de = req.body.de;
+
   res.json({
     ok: true,
-    mensaje: "POST LISTO",
+    cuerpo,
+    de,
+  });
+});
+
+// ===================================
+//POST MENSAJES/:id
+// ===================================
+router.post("/mensajes/:id", (req: Request, res: Response) => {
+  const id = req.params.id;
+
+  const cuerpo = req.body.cuerpo;
+  const de = req.body.de;
+
+  res.json({
+    ok: true,
+    id,
+    cuerpo,
+    de,
   });
 });
