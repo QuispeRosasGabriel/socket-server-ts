@@ -47,6 +47,10 @@ var Server = /** @class */ (function () {
         this.io.on("connection", function (cliente) {
             console.log("CLIENTE CONECTADO");
             //==================
+            //ESCUCHAR SOCKETS
+            //==================
+            socket.mensaje(cliente);
+            //==================
             // DESCONECTAR
             //==================
             socket.desconectar(cliente);
