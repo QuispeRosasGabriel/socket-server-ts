@@ -2,14 +2,16 @@ import express from "express";
 import { SERVER_PORT } from "../global/environment";
 import socketIO from "socket.io";
 import http from "http";
+import * as socket from "../sockets/socket";
 
 export default class Server {
+  private static _instance: Server;
   public app: express.Application;
   public port: number;
   public io: socketIO.Server;
   private httpServer: http.Server;
 
-  constructor() {
+  private constructor() {
     this.app = express();
     this.port = SERVER_PORT;
 
@@ -19,11 +21,20 @@ export default class Server {
     this.listenSockets();
   }
 
+  public static get instance() {
+    return this._instance || (this._instance = new this());
+  }
+
   private listenSockets() {
     console.log("Escuchando conexiones - sockets");
 
     this.io.on("connection", (cliente) => {
       console.log("CLIENTE CONECTADO");
+
+      //==================
+      // DESCONECTAR
+      //==================
+      socket.desconectar(cliente);
     });
   }
 
