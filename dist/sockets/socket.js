@@ -6,8 +6,9 @@ exports.desconectar = function (cliente) {
         console.log("cliente desconectado");
     });
 };
-exports.mensaje = function (cliente) {
+exports.mensaje = function (cliente, io) {
     cliente.on("mensaje", function (payload) {
         console.log("Mensaje recibido", payload);
+        io.emit("mensaje-nuevo", payload);
     });
 };

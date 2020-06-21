@@ -43,13 +43,14 @@ var Server = /** @class */ (function () {
         configurable: true
     });
     Server.prototype.listenSockets = function () {
+        var _this = this;
         console.log("Escuchando conexiones - sockets");
         this.io.on("connection", function (cliente) {
             console.log("CLIENTE CONECTADO");
             //==================
             //ESCUCHAR SOCKETS
             //==================
-            socket.mensaje(cliente);
+            socket.mensaje(cliente, _this.io);
             //==================
             // DESCONECTAR
             //==================

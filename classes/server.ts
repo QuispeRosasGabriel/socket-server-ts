@@ -34,7 +34,7 @@ export default class Server {
       //==================
       //ESCUCHAR SOCKETS
       //==================
-      socket.mensaje(cliente);
+      socket.mensaje(cliente, this.io);
 
       //==================
       // DESCONECTAR
