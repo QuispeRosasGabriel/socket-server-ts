@@ -40,6 +40,11 @@ export default class Server {
       // DESCONECTAR
       //==================
       socket.desconectar(cliente);
+
+      //==================
+      // CONFIGURAR USUARIO
+      //==================
+      socket.configurarUsuario(cliente, this.io);
     });
   }
 

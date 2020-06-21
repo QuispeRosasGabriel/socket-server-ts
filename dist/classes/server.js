@@ -55,6 +55,10 @@ var Server = /** @class */ (function () {
             // DESCONECTAR
             //==================
             socket.desconectar(cliente);
+            //==================
+            // CONFIGURAR USUARIO
+            //==================
+            socket.configurarUsuario(cliente, _this.io);
         });
     };
     Server.prototype.start = function (callback) {
