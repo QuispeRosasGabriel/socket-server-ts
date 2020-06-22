@@ -5,7 +5,7 @@ var UsuariosLista = /** @class */ (function () {
     function UsuariosLista() {
         this.lista = [];
     }
-    //Agregar usuario
+    // Agregar un usuario
     UsuariosLista.prototype.agregar = function (usuario) {
         this.lista.push(usuario);
         console.log(this.lista);
@@ -19,21 +19,22 @@ var UsuariosLista = /** @class */ (function () {
                 break;
             }
         }
-        console.log("==========Actualizando usuario==============");
+        console.log("===== Actualizando usuario ====");
         console.log(this.lista);
     };
-    //obtener lista de usuarios
+    // Obtener lista de usuarios
     UsuariosLista.prototype.getLista = function () {
         return this.lista;
     };
+    // Obtener un usuario
     UsuariosLista.prototype.getUsuario = function (id) {
         return this.lista.find(function (usuario) { return usuario.id === id; });
     };
-    //Obtener usuarios en una sala especifica
-    UsuariosLista.prototype.getUsuarioSala = function (sala) {
+    // Obtener usuario en una sala en particular
+    UsuariosLista.prototype.getUsuariosEnSala = function (sala) {
         return this.lista.filter(function (usuario) { return usuario.sala === sala; });
     };
-    //Borrar un usuario cuando se desconecte
+    // Borrar Usuario
     UsuariosLista.prototype.borrarUsuario = function (id) {
         var tempUsuario = this.getUsuario(id);
         this.lista = this.lista.filter(function (usuario) { return usuario.id !== id; });

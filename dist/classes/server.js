@@ -46,7 +46,14 @@ var Server = /** @class */ (function () {
         var _this = this;
         console.log("Escuchando conexiones - sockets");
         this.io.on("connection", function (cliente) {
-            console.log("CLIENTE CONECTADO");
+            //==================
+            //CONECTAR CLIENTE
+            //==================
+            socket.conectarCliente(cliente);
+            //==================
+            // CONFIGURAR USUARIO
+            //==================
+            socket.configurarUsuario(cliente, _this.io);
             //==================
             //ESCUCHAR SOCKETS
             //==================
@@ -55,10 +62,6 @@ var Server = /** @class */ (function () {
             // DESCONECTAR
             //==================
             socket.desconectar(cliente);
-            //==================
-            // CONFIGURAR USUARIO
-            //==================
-            socket.configurarUsuario(cliente, _this.io);
         });
     };
     Server.prototype.start = function (callback) {
