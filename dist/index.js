@@ -13,8 +13,19 @@ server.app.use(body_parser_1.default.urlencoded({
     extended: true,
 }));
 server.app.use(body_parser_1.default.json());
-//CORS
+// CORS
 server.app.use(cors_1.default({ origin: true, credentials: true }));
+// Configurar cabeceras y cors
+// server.app.use((req, res, next) => {
+//   res.header("Access-Control-Allow-Origin", "*");
+//   res.header(
+//     "Access-Control-Allow-Headers",
+//     "Authorization, X-API-KEY, Origin, X-Requested-With, Content-Type, Accept, Access-Control-Allow-Request-Method"
+//   );
+//   res.header("Access-Control-Allow-Methods", "GET, POST, OPTIONS, PUT, DELETE");
+//   res.header("Allow", "GET, POST, OPTIONS, PUT, DELETE");
+//   next();
+// });
 //RUTAS
 server.app.use("/", router_1.router);
 server.start(function () {
