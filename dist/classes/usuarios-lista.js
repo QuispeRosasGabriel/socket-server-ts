@@ -24,7 +24,7 @@ var UsuariosLista = /** @class */ (function () {
     };
     // Obtener lista de usuarios
     UsuariosLista.prototype.getLista = function () {
-        return this.lista;
+        return this.lista.filter(function (usuario) { return usuario.nombre !== "sin-nombre"; });
     };
     // Obtener un usuario
     UsuariosLista.prototype.getUsuario = function (id) {

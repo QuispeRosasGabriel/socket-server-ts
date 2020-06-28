@@ -32,12 +32,17 @@ export default class Server {
       //==================
       //CONECTAR CLIENTE
       //==================
-      socket.conectarCliente(cliente);
+      socket.conectarCliente(cliente, this.io);
 
       //==================
       // CONFIGURAR USUARIO
       //==================
       socket.configurarUsuario(cliente, this.io);
+
+      //==================
+      // EMITIR USUARIOS
+      //==================
+      socket.obtenerUsuarios(cliente, this.io);
 
       //==================
       //ESCUCHAR SOCKETS
@@ -47,7 +52,7 @@ export default class Server {
       //==================
       // DESCONECTAR
       //==================
-      socket.desconectar(cliente);
+      socket.desconectar(cliente, this.io);
     });
   }
 

@@ -49,11 +49,15 @@ var Server = /** @class */ (function () {
             //==================
             //CONECTAR CLIENTE
             //==================
-            socket.conectarCliente(cliente);
+            socket.conectarCliente(cliente, _this.io);
             //==================
             // CONFIGURAR USUARIO
             //==================
             socket.configurarUsuario(cliente, _this.io);
+            //==================
+            // EMITIR USUARIOS
+            //==================
+            socket.obtenerUsuarios(cliente, _this.io);
             //==================
             //ESCUCHAR SOCKETS
             //==================
@@ -61,7 +65,7 @@ var Server = /** @class */ (function () {
             //==================
             // DESCONECTAR
             //==================
-            socket.desconectar(cliente);
+            socket.desconectar(cliente, _this.io);
         });
     };
     Server.prototype.start = function (callback) {
