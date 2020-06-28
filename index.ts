@@ -14,7 +14,7 @@ server.app.use(
 server.app.use(bodyParser.json());
 
 //CORS
-server.app.use(cors({ origin: true, credentials: true }));
+server.app.use(cors({ origin: true, credentials: false }));
 
 //RUTAS
 server.app.use("/", router);
