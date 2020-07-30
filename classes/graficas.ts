@@ -10,6 +10,11 @@ export class GraficasData {
 
   public incrementarValor(mes: string, valor: number) {
     mes = mes.toLowerCase().trim();
-    this.meses.map((e, i) => {});
+    this.meses.map((e, i) => {
+      if (this.meses[i] === mes) {
+        this.valores[i] += valor;
+      }
+    });
+    return this.getDataGrafica();
   }
 }
